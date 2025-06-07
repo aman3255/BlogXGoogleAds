@@ -18,9 +18,8 @@ const server = express();
 
 // Middlewares
 server.use(cors(corsOptions));
-server.use(helmet({ contentSecurityPolicy: false }));
+server.use(helmet());
 server.use(express.json());
-server.use(express.urlencoded({ extended: true }));
 
 // API routes
 server.use('/api/v1', v1Router);
