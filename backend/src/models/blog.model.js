@@ -9,7 +9,7 @@ const blogSchema = new mongoose.Schema({
     trim: true,
     maxlength: [200, 'Title cannot exceed 200 characters']
   },
-  slug: { // Slug = SEO + Human-Friendly + Clean URLs + Easy Fetching
+  slug: { // Slug = SEO + Human-Friendly + Clean URLs + Easy Fetching.
     type: String,
     unique: true,
     trim: true,
