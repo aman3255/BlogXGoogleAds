@@ -21,9 +21,17 @@ const deleteBlogPost = async () => {
         
     }
 }
+const getBlogById = async () => {
+    try {
+        
+    } catch (error) {
+        
+    }
+}
 
 module.exports = {
     createBlogPost,
     updateBlogPost,
-    deleteBlogPost
+    deleteBlogPost,
+    getBlogById
 }
