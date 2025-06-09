@@ -1,11 +1,14 @@
 const express = require('express');
 
 const { signupController,signinController } = require('../../controllers/auth.controller');
-const { authMiddleware } = require('../../middleware/auth.middleware')
+const { validationMiddleware } = require('../../middleware/validation.middleware')
 
 const authRouter = express.Router();
 
-authRouter.post('/signup', signupController);
-authRouter.post('/signin', authMiddleware, signinController);
+// Signup route - only needs validation middleware
+authRouter.post('/signup', validationMiddleware('signup'), signupController);
+
+// Signin route - only needs validation middleware
+authRouter.post('/signin', validationMiddleware('signin'), signinController);
 
 module.exports = authRouter;

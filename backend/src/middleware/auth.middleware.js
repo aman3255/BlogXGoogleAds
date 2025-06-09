@@ -22,6 +22,22 @@ const authMiddleware = (req, res, next) => {
     }
 };
 
+const optionalAuth = (req, res, next) => {
+    const token = req.header('Authorization')?.replace('Bearer ', '');
+    if (token) {
+        // Try to authenticate but don't fail if invalid
+        try {
+            const jwt = require('jsonwebtoken');
+            const decoded = jwt.verify(token, process.env.JWT_SECRET);
+            req.user = decoded;
+        } catch (error) {
+            // Ignore auth errors for optional auth
+        }
+    }
+    next();
+};
+
 module.exports = {
-    authMiddleware
+    authMiddleware,
+    optionalAuth
 };

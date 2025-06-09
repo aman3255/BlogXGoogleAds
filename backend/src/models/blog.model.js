@@ -18,14 +18,12 @@ const blogSchema = new mongoose.Schema({
         required: [true, 'Blog content is required'],
         minlength: [100, 'Content must be at least 100 characters']
     },
-    // For the excerpt field
     excerpt: {
         type: String,
         maxlength: [300, 'Excerpt cannot exceed 300 characters'],
         trim: true,
         validate: {
             validator: function (v) {
-                // Auto-generate excerpt from content if not provided
                 if (!v && this.content) {
                     this.excerpt = this.content.substring(0, 297) + '...';
                 }
