@@ -1,6 +1,12 @@
 const express = require('express');
 
-const { createBlogPost, updateBlogPost, deleteBlogPost, getBlogById, softDeleteBlogPost, getBlogBySlug, getBlogForEdit } = require('../../controllers/blog.controller');
+const { createBlogPost } = require('../../controllers/createBlogPost.controller'); // createBlogPost controller
+const { updateBlogPost } = require('../../controllers/updateBlogPost.controller'); // updateBlogPost controller
+const { deleteBlogPost } = require('../../controllers/deleteBlogPost.conroller'); // deleteBlogPost controller
+const { softDeleteBlogPost } = require('../../controllers/softDeleteBlogPost.controller'); // softDeleteBlogPost controller
+const { getBlogById } = require('../../controllers/getBlogById.controller'); // getBlogById controller
+const { getBlogBySlug } = require('../../controllers/getBlogBySlug.controller'); // getBlogBySlug controller
+const { getBlogForEdit } = require('../../controllers/getBlogForEdit.controller'); // getBlogForEdit controller
 const { authMiddleware, optionalAuth } = require('../../middleware/auth.middleware')
 const { blogValidationMiddleware } = require('../../middleware/validation.middleware')
 
