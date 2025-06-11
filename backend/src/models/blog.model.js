@@ -103,7 +103,8 @@ blogSchema.index({ author: 1, createdAt: -1 });
 blogSchema.index({ status: 1, createdAt: -1 });
 blogSchema.index({ tags: 1 });
 blogSchema.index({ category: 1 });
-blogSchema.index({ slug: 1 }, { unique: true });
+// blogSchema.index({ slug: 1 }, { unique: true });
+
 
 const BlogModel = mongoose.model('Blog', blogSchema);
 module.exports = BlogModel;
