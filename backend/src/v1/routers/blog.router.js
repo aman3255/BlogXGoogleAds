@@ -1,6 +1,6 @@
 const express = require('express');
 
-const { createBlogPost } = require('../../controllers/createBlogPost.controller'); // createBlogPost controller
+const { createBlogPost } = require('../../controllers/blog.controller'); // createBlogPost controller
 const { updateBlogPost } = require('../../controllers/updateBlogPost.controller'); // updateBlogPost controller
 const { deleteBlogPost } = require('../../controllers/deleteBlogPost.conroller'); // deleteBlogPost controller
 const { softDeleteBlogPost } = require('../../controllers/softDeleteBlogPost.controller'); // softDeleteBlogPost controller

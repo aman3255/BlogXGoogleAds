@@ -10,6 +10,7 @@ const createBlogPost = async (req, res) => {
             tags,
             category,
             status,
+            featured,        
             metaDescription,
             adSettings
         } = req.body;
@@ -35,6 +36,7 @@ const createBlogPost = async (req, res) => {
             ...(tags && { tags: Array.isArray(tags) ? tags : [tags] }), // Ensure tags is array
             ...(category && { category }),
             ...(status && { status }),
+            ...(typeof featured === 'boolean' && { featured }), // ← Added featured field
             ...(metaDescription && { metaDescription: metaDescription.trim() }),
             ...(adSettings && { adSettings })
         };
@@ -65,6 +67,7 @@ const createBlogPost = async (req, res) => {
                 tags: newBlog.tags,
                 category: newBlog.category,
                 status: newBlog.status,
+                featured: newBlog.featured,  // ← Added to response
                 views: newBlog.views,
                 likes: newBlog.likes,
                 metaDescription: newBlog.metaDescription,
@@ -103,9 +106,6 @@ const createBlogPost = async (req, res) => {
     }
 };
 
-
-
-
 module.exports = {
     createBlogPost
-}
+};

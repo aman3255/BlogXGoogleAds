@@ -87,4 +87,6 @@ adminSchema.methods.incLoginAttempts = function() {
   return this.updateOne(updates);
 };
 
-module.exports = mongoose.model('Admin', adminSchema);
+
+const AdminModel = mongoose.model('Admin', adminSchema);
+module.exports = AdminModel;
